@@ -51,7 +51,7 @@ export default function TabOneScreen() {
           </Text>
           <View className="flex-row justify-center " style={{ backgroundColor: "transparent" }} >
             <Image
-              source={weatherImages[current?.condition?.text]} className='w-52 h-52'/>
+              source={weatherImages[current?.condition?.text] || weatherImages['other'] } className='w-52 h-52'/>
           </View>
           <View className="space-y-2" >
           <Text className='text-center font-bold text-white text-6xl ml-5 mt-10'>
