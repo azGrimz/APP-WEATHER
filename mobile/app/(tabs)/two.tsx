@@ -17,7 +17,7 @@ function TabBarIcon(props: {
 
 export default function TabTwoScreen() {
 
-    const [showSearch, toggleSearch] = useState(false)
+    const [showSearch, toggleSearch] = useState<boolean>(false)
     const [locations, setLocations] = useState([])
     const [searchTimeout, setSearchTimeout] = useState<any>();
     const [weather, setWeather] = useState<any>({});
@@ -152,7 +152,13 @@ export default function TabTwoScreen() {
                         {loading  ? (
                         <ActivityIndicator size="large" color="#0000ff" />
                         ) : (
-                            <View className=' p-6 rounded-xl w-90' style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}>
+                            <View className=' p-6 rounded-xl w-90' 
+        
+                            style={[
+                              styles.box, 
+                              { backgroundColor: 'rgba(255, 255, 255, 0.2)' }, 
+                              showSearch && styles.hidden
+                            ]}>
                             <View className='flex-row justify-between items-center'>
                                 <Text className='text-white text-5xl'>{`${current?.temp_c}`}&#176;</Text>
                                 <Image
@@ -186,3 +192,15 @@ export default function TabTwoScreen() {
     );
 }
 
+
+
+const styles = StyleSheet.create({
+  
+    box: {
+      padding: 24, // padding equivalente ao 'p-6' em Tailwind
+      borderRadius: 16, // arredondamento equivalente ao 'rounded-xl'
+    },
+    hidden: {
+      display: 'none',
+    },
+  });
