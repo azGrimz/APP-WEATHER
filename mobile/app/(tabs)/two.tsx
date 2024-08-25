@@ -150,7 +150,7 @@ export default function TabTwoScreen() {
 
 
                         {loading  ? (
-                        <ActivityIndicator size="large" color="#0000ff" />
+                        <ActivityIndicator size="large" color="lightgray" />
                         ) : (
                             <View className=' p-6 rounded-xl w-90' 
         
